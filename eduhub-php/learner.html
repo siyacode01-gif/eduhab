@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EduHub – Learner dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><b>EduHub</b><span id="who"></span><button class="ghost" onclick="logout()">Log out</button></header>
+<div class="shell">
+  <nav>
+    <button data-v="mine" onclick="go('mine')">My courses</button>
+    <button data-v="browse" onclick="go('browse')">Browse courses</button>
+    <button data-v="tests" onclick="go('tests')">Tests &amp; assignments</button>
+    <button data-v="grades" onclick="go('grades')">My grades</button>
+  </nav>
+  <main>
+    <section id="v-mine"><h2>My courses</h2><div id="mineList"></div></section>
+    <section id="v-browse" hidden><h2>Browse courses</h2><div id="browseList"></div></section>
+
+    <!-- SLIDE VIEWER with AI summary and check quiz -->
+    <section id="v-learn" hidden>
+      <button class="alt" onclick="go('mine')">&larr; My courses</button>
+      <h2 id="lTitle"></h2>
+      <div class="dots" id="dots"></div>
+      <div class="card" id="slideBox">
+        <small class="muted" id="slideNo"></small>
+        <h3 id="slideTitle"></h3>
+        <p id="slideBody" style="white-space:pre-wrap"></p>
+        <div class="row">
+          <button class="alt" id="sumBtn" onclick="summarise()">&#10024; AI summary</button>
+          <button id="readBtn" onclick="markRead()">Mark read &amp; continue</button>
+        </div>
+        <p id="aiOut" style="white-space:pre-wrap"></p>
+      </div>
+    </section>
+
+    <section id="v-tests" hidden><h2>Tests &amp; assignments</h2><div id="testList"></div></section>
+
+    <!-- TAKE a test / assignment -->
+    <section id="v-take" hidden>
+      <button class="alt" onclick="go('tests')">&larr; Back</button>
+      <h2 id="takeTitle"></h2>
+      <form id="takeForm"></form>
+    </section>
+
+    <section id="v-grades" hidden>
+      <h2>My grades</h2>
+      <div class="card"><table><thead><tr><th>Work</th><th>Status</th><th>Score</th><th>Feedback</th></tr></thead><tbody id="gradeRows"></tbody></table></div>
+    </section>
+  </main>
+</div>
+<footer>&copy; 2026 @EduHub_Mpondo. All rights reserved.</footer>
+<div id="modal" hidden><div id="modalBody"></div></div>
+<div id="toast" hidden></div>
+<script src="js/common.js"></script>
+<script src="js/learner.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EduHub – Administrator</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><b>EduHub</b><span id="who"></span><button class="ghost" onclick="logout()">Log out</button></header>
+<div class="shell">
+  <nav><button data-v="admin" class="on">Administration</button></nav>
+  <main>
+    <section id="v-admin">
+      <h2>Platform</h2>
+      <div class="card" id="stats"></div>
+      <h2>Users</h2>
+      <p class="muted">Change a role, unlock a locked account, issue a temporary password, or remove a user.</p>
+      <div class="card"><table>
+        <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="userRows"></tbody>
+      </table></div>
+    </section>
+  </main>
+</div>
+<footer>&copy; 2026 @EduHub_Mpondo. All rights reserved.</footer>
+<div id="toast" hidden></div>
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EduHub – Sign in</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><b>EduHub</b></header>
+<main class="auth">
+  <div class="tabs">
+    <button id="tabLogin" onclick="tab('login')">Sign in</button>
+    <button id="tabReg" class="alt" onclick="tab('register')">Create account</button>
+  </div>
+  <p id="msg" class="card" hidden></p>
+
+  <form id="loginForm" class="card">
+    <h2>Welcome back</h2>
+    <label>Email<input type="email" id="lEmail" required></label>
+    <label>Password<input type="password" id="lPass" required></label>
+    <button>Sign in</button>
+    <p class="muted">3 wrong passwords lock the account for 60 seconds. Forgot your password? Ask your administrator to reset it.</p>
+  </form>
+
+  <form id="regForm" class="card" hidden>
+    <h2>Create your account</h2>
+    <label>Full name<input id="rName" required></label>
+    <label>Email<input type="email" id="rEmail" required></label>
+    <label>Password (6+ characters)<input type="password" id="rPass" required></label>
+    <label>I am a
+      <select id="rRole"><option value="learner">Learner</option><option value="teacher">Teacher</option></select>
+    </label>
+    <button>Register</button>
+  </form>
+</main>
+<footer>&copy; 2026 @EduHub_Mpondo. All rights reserved.</footer>
+<div id="toast" hidden></div>
+<script src="js/common.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

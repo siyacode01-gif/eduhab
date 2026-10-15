@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EduHub – Teacher dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><b>EduHub</b><span id="who"></span><button class="ghost" onclick="logout()">Log out</button></header>
+<div class="shell">
+  <nav><button data-v="courses" onclick="showCourses()">My courses</button></nav>
+  <main>
+
+    <!-- COURSES: add / edit / delete -->
+    <section id="v-courses">
+      <h2 id="cfTitle">New course</h2>
+      <form id="courseForm" class="card">
+        <input type="hidden" id="cId">
+        <label>Title<input id="cTitle" required></label>
+        <label>Description<textarea id="cDesc"></textarea></label>
+        <div class="row"><button>Save course</button><button type="button" class="alt" onclick="resetCourse()">Clear</button></div>
+      </form>
+      <h2>My courses</h2>
+      <div id="courseList"></div>
+    </section>
+
+    <!-- ONE COURSE: slides, tests, quizzes, assignments -->
+    <section id="v-course" hidden>
+      <button class="alt" onclick="showCourses()">&larr; Courses</button>
+      <h2 id="courseName"></h2>
+
+      <h3>Upload slides</h3>
+      <form id="slideForm" class="card">
+        <input type="hidden" id="sId">
+        <label>Slide title<input id="sTitle" required></label>
+        <label>Slide content<textarea id="sContent" rows="4" required></textarea></label>
+        <div class="row"><button id="sBtn">Add slide</button><button type="button" class="alt" onclick="resetSlide()">Clear</button></div>
+      </form>
+      <div id="slideList"></div>
+
+      <h3>Set a quiz, test or assignment</h3>
+      <form id="asForm" class="card">
+        <label>Title<input id="aTitle" required></label>
+        <label>Type
+          <select id="aType">
+            <option value="quiz">Quiz (auto-marked)</option>
+            <option value="test">Test (auto-marked)</option>
+            <option value="assignment">Assignment (you mark it)</option>
+          </select>
+        </label>
+        <label>Due date<input type="date" id="aDue"></label>
+        <button>Create</button>
+      </form>
+      <div id="asList"></div>
+    </section>
+
+    <!-- SUBMISSIONS: mark students -->
+    <section id="v-subs" hidden>
+      <button class="alt" id="backToCourse">&larr; Back</button>
+      <h2 id="subsTitle"></h2>
+      <div id="subsList"></div>
+    </section>
+
+  </main>
+</div>
+<footer>&copy; 2026 @EduHub_Mpondo. All rights reserved.</footer>
+<div id="toast" hidden></div>
+<script src="js/common.js"></script>
+<script src="js/teacher.js"></script>
+</body>
+</html>
